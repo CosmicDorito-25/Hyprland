@@ -1173,3 +1173,32 @@ hl.window_rule({
         ASSERT_CONTAINS(str, "at: 967,22");
     }
 }
+
+TEST_CASE(execRulesWorkspaceOverride) {
+    OK(getFromSocket("/eval hl.window_rule({ match = { class = 'kitty_exec_override' }, workspace = '2' })"));
+
+    OK(getFromSocket("/dispatch hl.dsp.exec_cmd('[workspace 3] kitty --class kitty_exec_override')"));
+
+    Tests::waitUntilWindowsN(1);
+
+    auto str = getFromSocket("/activewindow");
+    EXPECT_CONTAINS(str, "class: kitty_exec_override");
+    EXPECT_CONTAINS(str, "workspace: 3");
+
+    Tests::killAllWindows();
+}
+
+TEST_CASE(execRulesTagMutation) {
+    OK(getFromSocket("/eval hl.window_rule({ match = { class = 'kitty_tag_mutate' }, workspace = '2' })"));
+    OK(getFromSocket("/eval hl.window_rule({ match = { class = 'kitty_tag_mutate' }, tag = 'test_tag' })"));
+
+    OK(getFromSocket("/dispatch hl.dsp.exec_cmd('[workspace 3] kitty --class kitty_tag_mutate')"));
+
+    Tests::waitUntilWindowsN(1);
+
+    auto str = getFromSocket("/activewindow");
+    EXPECT_CONTAINS(str, "class: kitty_tag_mutate");
+    EXPECT_CONTAINS(str, "workspace: 3");
+
+    Tests::killAllWindows();
+}
