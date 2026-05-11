@@ -23,7 +23,7 @@ namespace ErrorOverlay {
 
         void  queueCreate(std::string message, const CHyprColor& color);
         void  queueCreate(std::string message, const Config::CGradientValueData& gradient);
-        void  queueError(std::string err);
+        void  queueError(const std::string& err);
         void  draw();
         void  destroy();
 
