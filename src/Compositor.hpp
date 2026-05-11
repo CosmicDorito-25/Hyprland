@@ -63,7 +63,7 @@ class CCompositor {
     std::unordered_map<std::string, MONITORID>   m_monitorIDMap;
     std::unordered_map<std::string, WORKSPACEID> m_seenMonitorWorkspaceMap; // map of seen monitor names to workspace IDs
 
-    void                                         initServer(std::string socketName, int socketFd);
+    void                                         initServer(const std::string& socketName, int socketFd);
     void                                         startCompositor();
     void                                         stopCompositor();
     void                                         cleanup();
