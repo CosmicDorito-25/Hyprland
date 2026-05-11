@@ -387,7 +387,7 @@ void CDesktopAnimationManager::animationPopin(PHLWINDOW pWindow, bool close, flo
     }
 }
 
-void CDesktopAnimationManager::animationSlide(PHLWINDOW pWindow, std::string force, bool close) {
+void CDesktopAnimationManager::animationSlide(PHLWINDOW pWindow, const std::string& force, bool close) {
     pWindow->m_realSize->warp(false); // size we preserve in slide
 
     const auto GOALPOS  = pWindow->m_realPosition->goal();
