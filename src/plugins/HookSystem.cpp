@@ -282,8 +282,7 @@ CFunctionHook* CHookSystem::initHook(HANDLE owner, void* source, void* destinati
 }
 
 bool CHookSystem::removeHook(CFunctionHook* hook) {
-    std::erase_if(m_hooks, [&](const auto& other) { return other.get() == hook; });
-    return true; // todo: make false if not found
+    return std::erase_if(m_hooks, [&](const auto& other) { return other.get() == hook; }) > 0;
 }
 
 void CHookSystem::removeAllHooksFrom(HANDLE handle) {
