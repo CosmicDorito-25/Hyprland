@@ -98,7 +98,7 @@ class CLayerShellProtocol : public IWaylandProtocol {
   private:
     void onManagerResourceDestroy(wl_resource* res);
     void destroyResource(CLayerShellResource* surf);
-    void onGetLayerSurface(CZwlrLayerShellV1* pMgr, uint32_t id, wl_resource* surface, wl_resource* output, zwlrLayerShellV1Layer layer, std::string namespace_);
+    void onGetLayerSurface(CZwlrLayerShellV1* pMgr, uint32_t id, wl_resource* surface, wl_resource* output, zwlrLayerShellV1Layer layer, const std::string& namespace_);
 
     //
     std::vector<UP<CZwlrLayerShellV1>>   m_managers;
