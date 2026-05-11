@@ -22,7 +22,7 @@ class CDesktopAnimationManager {
 
   private:
     void animationPopin(PHLWINDOW w, bool close = false, float minPerc = 0.f);
-    void animationSlide(PHLWINDOW w, std::string force = "", bool close = false);
+    void animationSlide(PHLWINDOW w, const std::string& force = "", bool close = false);
     void animationGnomed(PHLWINDOW w, bool close = false);
 };
 
