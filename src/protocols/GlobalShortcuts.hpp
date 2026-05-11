@@ -30,8 +30,8 @@ class CGlobalShortcutsProtocol : IWaylandProtocol {
     void                   bindManager(wl_client* client, void* data, uint32_t version, uint32_t id);
     void                   destroyResource(CShortcutClient* client);
 
-    void                   sendGlobalShortcutEvent(std::string appid, std::string trigger, bool pressed);
-    bool                   isTaken(std::string id, std::string app_id);
+    void                   sendGlobalShortcutEvent(const std::string& appid, const std::string& trigger, bool pressed);
+    bool                   isTaken(const std::string& id, const std::string& app_id);
     std::vector<SShortcut> getAllShortcuts();
 
   private:
