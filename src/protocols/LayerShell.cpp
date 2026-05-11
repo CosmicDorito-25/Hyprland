@@ -218,7 +218,7 @@ void CLayerShellProtocol::destroyResource(CLayerShellResource* surf) {
     std::erase_if(m_layers, [&](const auto& other) { return other.get() == surf; });
 }
 
-void CLayerShellProtocol::onGetLayerSurface(CZwlrLayerShellV1* pMgr, uint32_t id, wl_resource* surface, wl_resource* output, zwlrLayerShellV1Layer layer, std::string namespace_) {
+void CLayerShellProtocol::onGetLayerSurface(CZwlrLayerShellV1* pMgr, uint32_t id, wl_resource* surface, wl_resource* output, zwlrLayerShellV1Layer layer, const std::string& namespace_) {
     const auto CLIENT   = pMgr->client();
     const auto PMONITOR = output ? CWLOutputResource::fromResource(output)->m_monitor.lock() : nullptr;
     auto       SURF     = CWLSurfaceResource::fromResource(surface);
