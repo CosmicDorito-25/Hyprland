@@ -272,7 +272,7 @@ static bool filterGlobals(const wl_client* client, const wl_global* global, void
 }
 
 //
-void CCompositor::initServer(std::string socketName, int socketFd) {
+void CCompositor::initServer(const std::string& socketName, int socketFd) {
     if (m_onlyConfigVerification) {
         g_pKeybindManager   = makeUnique<CKeybindManager>();
         g_pAnimationManager = makeUnique<CHyprAnimationManager>();
